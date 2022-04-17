@@ -78,7 +78,19 @@ const mexicoExplorers = explorers.find((explorer) => explorer.city === "CDMX");
 console.log(mexicoExplorers);
 
 const totalExercises = explorers.reduce((acc, obj) => {
-  return acc;
-});
+  return acc + obj.exercises_completed;
+}, 0);
 
 console.log(totalExercises);
+
+const withExercisesFinished = explorers.some((explorer) => {
+  return explorer.missions.frontend.exercisesFinished === true;
+});
+
+console.log(withExercisesFinished);
+
+const isFinished = explorers.every((explorer) => {
+  return explorer.missions.onboarding.isFinished;
+});
+
+console.log(isFinished);
